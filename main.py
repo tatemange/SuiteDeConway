@@ -67,6 +67,8 @@ class SuiteDeConway:
 
     nb = property(get, set)
 
-suite = SuiteDeConway(1111, 14)
+
+
+suite = SuiteDeConway(1, 14)
 suite.view()
 suite.viewBack()
