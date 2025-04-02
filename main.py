@@ -24,7 +24,6 @@ class SuiteDeConway:
 
     def set(self, value):
         self._nb = str(value)
-    
 
     def destructurer(self, string):
         count = 1
@@ -39,17 +38,34 @@ class SuiteDeConway:
             i += 1 
         newString.extend([str(count) + string[i]])
         return "".join(newString)
+
+    def back(self, string):
+        newString = []
+        for i in range(0, len(string), 2):
+            for j in range(int(string[i])):
+                newString.extend([string[i+1]])
+        
+        return "".join(newString)
     
-    def view(self, limit):
+    def view(self):
         print(self._nb)
         new = self.destructurer(self._nb)
         print(new)
-        for i in range(limit-1):
+        for i in range(self.limit-1):
             new = self.destructurer(new)
+            print(new)
+
+        self.end = new
+
+    def viewBack(self):
+        new = self.back(self.end)
+        print(new)
+        for i in range(self.limit-1):
+            new = self.back(new)
             print(new)
 
     nb = property(get, set)
 
-suite = SuiteDeConway(3, 10)
-suite.nb = 12
-suite.view(5)
+suite = SuiteDeConway(1111, 14)
+suite.view()
+suite.viewBack()
